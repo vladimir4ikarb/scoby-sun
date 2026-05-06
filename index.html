@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <!-- Premium Film Grain -->
+    <div class="noise-overlay"></div>
+
     <!-- Scroll Progress Dots -->
     <div class="scroll-progress" id="scrollProgress">
         <div class="scroll-dot active" data-target="hero"></div>
@@ -36,21 +39,21 @@
              HERO SECTION
         ============================== -->
         <section id="hero" class="fullscreen-section hero-section">
-            <div class="pattern-overlay"></div>
-            <div class="organic-blob parallax-element" data-speed="0.03"></div>
-            <div class="organic-blob parallax-element" data-speed="-0.02"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.01"></div>
+            <div class="organic-blob parallax-element" data-speed="0.04"></div>
+            <div class="organic-blob parallax-element" data-speed="-0.03"></div>
             <div class="accent-word" aria-hidden="true">alive</div>
 
             <div class="hero-inner">
                 <div class="hero-text">
                     <img src="/img/logo.svg" alt="SCOBY SUN" class="hero-logo reveal-up" style="--i:0">
-                    <h1 class="headline-xl reveal-up" style="--i:1">Live culture<br>for a sunny<br>mood in<br>your
-                        stomach</h1>
-                    <p class="subheadline-lg reveal-up" style="--i:2">We don't follow trends. We are inspiration to be
-                        alive.</p>
+                    <div class="reveal-mask">
+                        <h1 class="headline-xl reveal-up" style="--i:1">Live culture<br>for a sunny<br>mood in<br>your stomach</h1>
+                    </div>
+                    <p class="subheadline-lg reveal-up" style="--i:2">We don't follow trends. We are inspiration to be alive.</p>
                 </div>
                 <div class="hero-visual reveal-scale" style="--i:2">
-                    <div class="hero-bottle bottle-float parallax-element" data-speed="0.04" data-flavor="8"></div>
+                    <div class="hero-bottle bottle-float parallax-element" data-speed="0.08" data-flavor="8"></div>
                 </div>
             </div>
         </section>
@@ -59,15 +62,17 @@
              SECTION 1 — CLASSIC
         ============================== -->
         <section id="classic" class="fullscreen-section flavor-section" data-flavor="classic">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-classic.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.02"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-classic.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.04"></div>
             <div class="accent-word" aria-hidden="true">pure</div>
 
             <div class="content-wrapper split">
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-left" style="--i:0">Base / Introduction</span>
-                    <h2 class="headline-lg reveal-left" style="--i:1">Start with<br>the original.</h2>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Start with<br>the original.</h2>
+                    </div>
                     <p class="subheadline-md reveal-left" style="--i:2">The pure expression of living fermentation.</p>
                     <div class="description reveal-left" style="--i:3">
                         Classic is the foundation of SCOBYSUN. Clean, balanced and honest. A kombucha that introduces
@@ -75,8 +80,7 @@
                     </div>
                 </div>
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="classic"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="classic"></div>
                 </div>
             </div>
         </section>
@@ -85,19 +89,20 @@
              SECTION 2 — GINGER
         ============================== -->
         <section id="ginger" class="fullscreen-section flavor-section" data-flavor="ginger">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-ginger.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.02"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-ginger.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.04"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
             <div class="accent-word" aria-hidden="true">energy</div>
 
             <div class="content-wrapper split reverse">
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="ginger"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="ginger"></div>
                 </div>
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-right" style="--i:0">Energy / Activation</span>
-                    <h2 class="headline-lg reveal-right" style="--i:1">Wake up<br>your rhythm.</h2>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Wake up<br>your rhythm.</h2>
+                    </div>
                     <p class="subheadline-md reveal-right" style="--i:2">Sharp energy without artificial noise.</p>
                     <div class="description reveal-right" style="--i:3">
                         Ginger is movement. Bright, active and focused. Built for mornings, work sessions and moments
@@ -111,25 +116,25 @@
              SECTION 3 — BERRY
         ============================== -->
         <section id="berry" class="fullscreen-section flavor-section" data-flavor="berry">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-berry.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.02"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-berry.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.04"></div>
             <div class="accent-word" aria-hidden="true">emotion</div>
 
             <div class="content-wrapper split">
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-left" style="--i:0">Emotion / Pleasure</span>
-                    <h2 class="headline-lg reveal-left" style="--i:1">Taste the<br>emotional side.</h2>
-                    <p class="subheadline-md reveal-left" style="--i:2">Bold berry flavor with a vibrant personality.
-                    </p>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Taste the<br>emotional side.</h2>
+                    </div>
+                    <p class="subheadline-md reveal-left" style="--i:2">Bold berry flavor with a vibrant personality.</p>
                     <div class="description reveal-left" style="--i:3">
                         Berry is attraction and emotion. Deep flavor, rich atmosphere and the most visually expressive
                         part of the SCOBYSUN system.
                     </div>
                 </div>
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="berry"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="berry"></div>
                 </div>
             </div>
         </section>
@@ -138,19 +143,20 @@
              SECTION 4 — ORANGE
         ============================== -->
         <section id="orange" class="fullscreen-section flavor-section" data-flavor="orange">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-orange.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.02"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-orange.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.04"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
             <div class="accent-word" aria-hidden="true">bright</div>
 
             <div class="content-wrapper split reverse">
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="orange"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="orange"></div>
                 </div>
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-right" style="--i:0">Everyday / Universal</span>
-                    <h2 class="headline-lg reveal-right" style="--i:1">Your everyday<br>kombucha.</h2>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Your everyday<br>kombucha.</h2>
+                    </div>
                     <p class="subheadline-md reveal-right" style="--i:2">Easy, bright and endlessly drinkable.</p>
                     <div class="description reveal-right" style="--i:3">
                         Orange is the universal flavor of the system. Fresh citrus energy designed for everyday moments
@@ -164,15 +170,17 @@
              SECTION 5 — GRAPEFRUIT
         ============================== -->
         <section id="grapefruit" class="fullscreen-section flavor-section" data-flavor="grapefruit">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-grapefruit.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.02"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-grapefruit.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.04"></div>
             <div class="accent-word" aria-hidden="true">evening</div>
 
             <div class="content-wrapper split">
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-left" style="--i:0">Social / Evening</span>
-                    <h2 class="headline-lg reveal-left" style="--i:1">Evening without<br>compromise.</h2>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Evening without<br>compromise.</h2>
+                    </div>
                     <p class="subheadline-md reveal-left" style="--i:2">A sparkling alternative to alcohol culture.</p>
                     <div class="description reveal-left" style="--i:3">
                         Grapefruit transforms kombucha into a social ritual. Ice, glasses, conversation and evening
@@ -180,8 +188,7 @@
                     </div>
                 </div>
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="grapefruit"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="grapefruit"></div>
                 </div>
             </div>
         </section>
@@ -190,19 +197,20 @@
              SECTION 6 — CUCUMBER
         ============================== -->
         <section id="cucumber" class="fullscreen-section flavor-section" data-flavor="cucumber">
-            <div class="pattern-overlay" style="background-image: url('/img/pattern-cucumber.png');"></div>
-            <div class="flavor-blob blob-1 parallax-element" data-speed="0.03"></div>
-            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.02"></div>
+            <div class="pattern-overlay parallax-element" data-speed="0.015" style="background-image: url('/img/pattern-cucumber.png');"></div>
+            <div class="flavor-blob blob-1 parallax-element" data-speed="0.04"></div>
+            <div class="flavor-blob blob-2 parallax-element" data-speed="-0.03"></div>
             <div class="accent-word" aria-hidden="true">fresh</div>
 
             <div class="content-wrapper split reverse">
                 <div class="visual-content">
-                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.04"
-                        data-flavor="cucumber"></div>
+                    <div class="bottle-container bottle-float reveal-scale parallax-element" data-speed="0.1" data-flavor="cucumber"></div>
                 </div>
                 <div class="text-content stagger">
                     <span class="flavor-role reveal-right" style="--i:0">Wellness / Reset</span>
-                    <h2 class="headline-lg reveal-right" style="--i:1">Reset<br>your system.</h2>
+                    <div class="reveal-mask">
+                        <h2 class="headline-lg reveal-up" style="--i:1">Reset<br>your system.</h2>
+                    </div>
                     <p class="subheadline-md reveal-right" style="--i:2">Freshness, lightness and calm energy.</p>
                     <div class="description reveal-right" style="--i:3">
                         Cucumber represents recovery and balance. A clean wellness-oriented kombucha built around
@@ -216,8 +224,8 @@
              FINAL SECTION
         ============================== -->
         <section id="final" class="fullscreen-section final-section">
-            <div class="pattern-overlay final-pattern"></div>
-            <div class="organic-blob parallax-element" data-speed="0.02"></div>
+            <div class="pattern-overlay final-pattern parallax-element" data-speed="0.01"></div>
+            <div class="organic-blob parallax-element" data-speed="0.04"></div>
             <div class="organic-blob parallax-element" data-speed="-0.03"></div>
             <div class="logo-watermark">SCOBYSUN</div>
           
@@ -226,13 +234,14 @@
                 <div class="final-logo reveal-up" style="--i:0">
                     <img src="/img/logo.svg" alt="SCOBYSUN">
                 </div>
-                <h2 class="headline-xl reveal-up" style="--i:1">Living energy<br>in every bottle.</h2>
+                <div class="reveal-mask">
+                    <h2 class="headline-xl reveal-up" style="--i:1">Living energy<br>in every bottle.</h2>
+                </div>
                 <p class="final-sub reveal-up" style="--i:2">SCOBY SUN is not just kombucha.<br>It is a rhythm of
                     balance, movement and conscious living.</p>
             </div>
 
             <footer class="main-footer">
-
                 <div class="footer-tagline">Living Fermentation Culture © 2026 &nbsp; | &nbsp; Designed by <a href="https://t.me/vladimir4ik" target="_blank" style="color: inherit; text-decoration: underline;">Volodymyr Chuguiev</a></div>
             </footer>
         </section>

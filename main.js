@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // 2. SCROLL REVEAL ANIMATIONS
     // =========================================
-    const revealElements = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-left, .reveal-right');
+    const revealElements = document.querySelectorAll('.reveal-up, .reveal-scale, .reveal-left, .reveal-right, .reveal-mask');
 
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -113,11 +113,13 @@ document.addEventListener('DOMContentLoaded', () => {
         parallaxElements.forEach(el => {
             let speed = parseFloat(el.getAttribute('data-speed')) || 0;
             
-            // Boost speed to make parallax more noticeable
+            // Boost speed significantly to make parallax very noticeable
             if (el.classList.contains('bottle-container') || el.classList.contains('hero-bottle')) {
-                speed = speed * 4; 
+                speed = speed * 6; // Fast bottles
+            } else if (el.classList.contains('pattern-overlay')) {
+                speed = speed * 1.5; // Very slow patterns
             } else {
-                speed = speed * 2.5;
+                speed = speed * 4; // Medium blobs
             }
 
             const rect = el.closest('.fullscreen-section')?.getBoundingClientRect();
@@ -160,7 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Only apply to visible sections
             if (rect.top > -100 && rect.top < window.innerHeight) {
-                bottle.style.transform = `translate(${currentX * 15}px, ${currentY * 15}px)`;
+                // Higher depth for bottles
+                bottle.style.transform = `translate(${currentX * 25}px, ${currentY * 25}px)`;
             }
         });
 
@@ -209,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     // Trigger hero animations after a small delay
     setTimeout(() => {
-        document.querySelectorAll('#hero .reveal-up, #hero .reveal-scale').forEach(el => {
+        document.querySelectorAll('#hero .reveal-up, #hero .reveal-scale, #hero .reveal-mask').forEach(el => {
             el.classList.add('visible');
         });
     }, 300);

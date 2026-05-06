@@ -101,6 +101,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* === Film Grain Overlay === */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+}
+
+/* === Reveal Mask Logic === */
+.reveal-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-mask .reveal-up {
+  transform: translateY(115%);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-mask.visible .reveal-up {
+  transform: translateY(0);
+}
+
 /* === Scroll Snap Container === */
 .snap-container {
   height: 100vh;
@@ -369,9 +398,10 @@ body {
   background-size: 500px;
   background-repeat: repeat;
   background-position: center;
-  opacity: 0.12;
+  opacity: 0.06; /* More subtle for depth */
   mix-blend-mode: multiply;
-  animation: pattern-drift 80s linear infinite;
+  animation: pattern-drift 120s linear infinite; /* Slower drift */
+  will-change: transform;
 }
 
 .final-pattern {
