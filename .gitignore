@@ -4,4 +4,4 @@ dist
 *.log
 land.txt
 brandbook.pdf
-img/
+/img/
