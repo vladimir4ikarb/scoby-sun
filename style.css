@@ -676,8 +676,9 @@ body {
 
 /* ================================================
    Decorative Exmouth Accent Words
-   KEY: width:100% + text-align:center = symmetric clipping
-   Both edges clip equally → middle always visible behind bottle
+   1. width: 100% + text-align: center = no first letter clipping
+   2. Position: "ПОД БУТЫЛКОЙ" -> At the bottom of the section
+   3. Huge font size -> Visible even if partially layered
 ================================================ */
 .accent-word {
   font-family: 'Exmouth', cursive;
@@ -687,59 +688,32 @@ body {
   user-select: none;
   white-space: nowrap;
   line-height: 1;
-  opacity: 0.17;
+  opacity: 0.15;
   color: currentColor;
-  /* Full width + center-align: no left-bias clipping */
   left: 0;
   width: 100%;
   text-align: center;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: clamp(5rem, 9vw, 8.5rem);
+  /* At the bottom of the container */
+  bottom: 8%;
+  top: auto;
+  transform: none;
 }
 
-/* HERO: bottles on right — word centered on right half */
+/* Desktop sizing */
 .hero-section .accent-word {
-  font-size: clamp(5rem, 14vw, 13rem);
-  left: 50%;
-  width: 50%;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: clamp(8rem, 20vw, 25rem);
   opacity: 0.22;
   color: var(--coral-pink);
 }
 
-/* Flavor sections: bottle column specific positioning */
-/* RIGHT column (Classic, Berry, Grapefruit) → right 50% */
-.flavor-section[data-flavor="classic"] .accent-word,
-.flavor-section[data-flavor="berry"] .accent-word,
-.flavor-section[data-flavor="grapefruit"] .accent-word {
-  left: 50%;
-  width: 50%;
-  top: 50%;
-  transform: translateY(-50%);
+.flavor-section .accent-word {
+  font-size: clamp(8rem, 18vw, 22rem);
 }
 
-/* LEFT column (Ginger, Orange, Cucumber) → left 50% */
-.flavor-section[data-flavor="ginger"] .accent-word,
-.flavor-section[data-flavor="orange"] .accent-word,
-.flavor-section[data-flavor="cucumber"] .accent-word {
-  left: 0;
-  width: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-/* FINAL: no bottle, word at very bottom — clearly visible below all content */
 .accent-word--final {
-  font-size: clamp(4rem, 8vw, 7rem);
+  font-size: clamp(6rem, 12vw, 15rem);
   opacity: 0.18;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  bottom: 6%;
-  top: auto;
-  transform: none;
+  bottom: 5%;
 }
 
 /* === Responsive === */
@@ -843,49 +817,29 @@ body {
     background-size: 300px;
   }
 
-  /* Mobile: full width + text-align center → symmetric clipping, no first-letter eating */
-  .accent-word,
-  .flavor-section[data-flavor="classic"] .accent-word,
-  .flavor-section[data-flavor="ginger"] .accent-word,
-  .flavor-section[data-flavor="berry"] .accent-word,
-  .flavor-section[data-flavor="orange"] .accent-word,
-  .flavor-section[data-flavor="grapefruit"] .accent-word,
-  .flavor-section[data-flavor="cucumber"] .accent-word {
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: clamp(3rem, 13vw, 5.5rem);
-    opacity: 0.15;
-    filter: none;
-    top: 22%;
-    transform: translateY(-50%);
+  /* Mobile accent words */
+  .flavor-section .accent-word {
+    /* Below bottle (top 45vh), above text */
+    top: 45%;
     bottom: auto;
+    transform: translateY(-50%);
+    font-size: clamp(5rem, 18vw, 9rem);
   }
 
   .hero-section .accent-word {
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: clamp(3.5rem, 15vw, 6rem);
-    opacity: 0.2;
-    filter: none;
-    /* Below the bottles, not hidden behind them */
-    bottom: 4%;
-    top: auto;
-    transform: none;
-    color: var(--coral-pink);
+    /* Below text, above bottles */
+    top: 55%;
+    bottom: auto;
+    transform: translateY(-50%);
+    font-size: clamp(6rem, 20vw, 10rem);
   }
 
   .accent-word--final {
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: clamp(2.5rem, 11vw, 4.5rem);
-    opacity: 0.18;
-    filter: none;
-    bottom: 6%;
+    /* Below all text */
+    bottom: 5%;
     top: auto;
     transform: none;
+    font-size: clamp(4rem, 15vw, 8rem);
   }
 
   .logo-watermark {
