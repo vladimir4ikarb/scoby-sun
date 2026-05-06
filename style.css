@@ -827,11 +827,18 @@ body {
     background-size: 300px;
   }
 
-  .accent-word {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-    opacity: 0.2;
-    max-width: 40%;
-    overflow: hidden;
+  /* On mobile — ALL accent words positioned from LEFT so text starts visible */
+  .accent-word,
+  .flavor-section:nth-child(odd) .accent-word,
+  .flavor-section:nth-child(even) .accent-word,
+  .accent-word--final {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+    opacity: 0.18;
+    max-width: none;
+    overflow: visible;
+    bottom: 8%;
+    left: 5%;
+    right: auto;
   }
 
   .hero-section .accent-word {
@@ -840,9 +847,8 @@ body {
     left: 5%;
     right: auto;
     transform: none;
-    font-size: clamp(2.8rem, 11vw, 4.5rem);
-    opacity: 0.25;
-    max-width: 40%;
+    font-size: clamp(2.4rem, 10vw, 3.8rem);
+    opacity: 0.22;
   }
 
   .logo-watermark {
