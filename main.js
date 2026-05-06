@@ -24,14 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const flavor = container.getAttribute('data-flavor');
         if (!flavor) return;
 
+        // Wrapper for scroll parallax so it doesn't conflict with CSS float animations
+        const wrapper = document.createElement('div');
+        wrapper.className = 'bottle-scroll-wrapper';
+        wrapper.style.width = '100%';
+        wrapper.style.height = '100%';
+        wrapper.style.display = 'flex';
+        wrapper.style.justifyContent = 'center';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.willChange = 'transform';
+
         const img = document.createElement('img');
         img.alt = `SCOBYSUN ${flavor} kombucha bottle`;
         img.style.opacity = '0';
         img.style.transform = 'translateY(30px) scale(0.95)';
         img.style.transition = 'opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
         
-        // Insert into DOM immediately so browser can start loading
-        container.appendChild(img);
+        wrapper.appendChild(img);
+        container.appendChild(wrapper);
         
         img.onload = () => {
             requestAnimationFrame(() => {
@@ -44,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             container.classList.add('image-missing');
         };
 
-        // Set src AFTER appending to DOM
         img.src = `/img/${flavor}.png`;
     });
 
@@ -101,10 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. PARALLAX ON SCROLL
     // =========================================
     const handleScrollParallax = () => {
-        const scrollTop = snapContainer.scrollTop;
-
         parallaxElements.forEach(el => {
-            const speed = parseFloat(el.getAttribute('data-speed')) || 0;
+            let speed = parseFloat(el.getAttribute('data-speed')) || 0;
+            
+            // Boost speed to make parallax more noticeable
+            if (el.classList.contains('bottle-container') || el.classList.contains('hero-bottle')) {
+                speed = speed * 4; 
+            } else {
+                speed = speed * 2.5;
+            }
+
             const rect = el.closest('.fullscreen-section')?.getBoundingClientRect();
             if (!rect) return;
 
@@ -112,7 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const viewportCenter = window.innerHeight / 2;
             const offset = (sectionCenter - viewportCenter) * speed;
 
-            el.style.transform = `translateY(${offset}px)`;
+            // Apply transform to the wrapper to prevent overwriting the CSS animation on the container
+            if (el.classList.contains('bottle-container') || el.classList.contains('hero-bottle')) {
+                const wrapper = el.querySelector('.bottle-scroll-wrapper');
+                if (wrapper) wrapper.style.transform = `translateY(${offset}px)`;
+            } else {
+                el.style.transform = `translateY(${offset}px)`;
+            }
         });
     };
 
