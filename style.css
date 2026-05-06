@@ -701,6 +701,12 @@ body {
 
 /* Desktop sizing */
 .hero-section .accent-word {
+  /* Keep it strictly on the right half (behind bottles) so it doesn't overlap left text */
+  left: 50%;
+  width: 50%;
+  top: 65%;
+  bottom: auto;
+  transform: translateY(-50%);
   font-size: clamp(8rem, 20vw, 25rem);
   opacity: 0.22;
   color: var(--coral-pink);
@@ -827,8 +833,8 @@ body {
   }
 
   .hero-section .accent-word {
-    /* Below text, above bottles */
-    top: 55%;
+    /* Place it exactly where bottles are (bottom part of screen), away from top text */
+    top: 75%;
     bottom: auto;
     transform: translateY(-50%);
     font-size: clamp(6rem, 20vw, 10rem);
