@@ -80,7 +80,9 @@
 }
 
 /* === Reset === */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -327,12 +329,35 @@ body {
 }
 
 /* === Flavor Sections === */
-.flavor-section[data-flavor="classic"]    { background-color: var(--classic-bg);    color: var(--classic-text); }
-.flavor-section[data-flavor="ginger"]     { background-color: var(--ginger-bg);     color: var(--ginger-text); }
-.flavor-section[data-flavor="berry"]      { background-color: var(--berry-bg);      color: var(--berry-text); }
-.flavor-section[data-flavor="orange"]     { background-color: var(--orange-bg);     color: var(--orange-text); }
-.flavor-section[data-flavor="grapefruit"] { background-color: var(--grapefruit-bg); color: var(--grapefruit-text); }
-.flavor-section[data-flavor="cucumber"]   { background-color: var(--cucumber-bg);   color: var(--cucumber-text); }
+.flavor-section[data-flavor="classic"] {
+  background-color: var(--classic-bg);
+  color: var(--classic-text);
+}
+
+.flavor-section[data-flavor="ginger"] {
+  background-color: var(--ginger-bg);
+  color: var(--ginger-text);
+}
+
+.flavor-section[data-flavor="berry"] {
+  background-color: var(--berry-bg);
+  color: var(--berry-text);
+}
+
+.flavor-section[data-flavor="orange"] {
+  background-color: var(--orange-bg);
+  color: var(--orange-text);
+}
+
+.flavor-section[data-flavor="grapefruit"] {
+  background-color: var(--grapefruit-bg);
+  color: var(--grapefruit-text);
+}
+
+.flavor-section[data-flavor="cucumber"] {
+  background-color: var(--cucumber-bg);
+  color: var(--cucumber-text);
+}
 
 /* === Fruit Pattern Overlays === */
 .pattern-overlay {
@@ -361,8 +386,13 @@ body {
 }
 
 @keyframes pattern-drift {
-  0% { transform: translate(0, 0) scale(1.05); }
-  100% { transform: translate(-30px, -30px) scale(1.05); }
+  0% {
+    transform: translate(0, 0) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-30px, -30px) scale(1.05);
+  }
 }
 
 /* Hero pattern */
@@ -382,7 +412,8 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  z-index: 10;  /* above accent-word (z-index:2) */
+  z-index: 10;
+  /* above accent-word (z-index:2) */
 }
 
 .bottle-container img {
@@ -399,8 +430,15 @@ body {
 
 /* Float animation */
 @keyframes bottle-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .bottle-float {
@@ -488,10 +526,27 @@ body {
 }
 
 @keyframes blob-morph {
-  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; transform: rotate(0deg) scale(1); }
-  25% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(5deg) scale(1.05); }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; transform: rotate(-3deg) scale(0.95); }
-  75% { border-radius: 50% 40% 60% 50% / 40% 60% 40% 60%; transform: rotate(4deg) scale(1.02); }
+
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(-3deg) scale(0.95);
+  }
+
+  75% {
+    border-radius: 50% 40% 60% 50% / 40% 60% 40% 60%;
+    transform: rotate(4deg) scale(1.02);
+  }
 }
 
 /* Flavor blobs */
@@ -519,12 +574,29 @@ body {
   animation-delay: -12s;
 }
 
-.flavor-section[data-flavor="classic"]    .flavor-blob { background-color: var(--classic-accent); }
-.flavor-section[data-flavor="ginger"]     .flavor-blob { background-color: var(--ginger-accent); }
-.flavor-section[data-flavor="berry"]      .flavor-blob { background-color: var(--berry-accent); }
-.flavor-section[data-flavor="orange"]     .flavor-blob { background-color: var(--orange-accent); }
-.flavor-section[data-flavor="grapefruit"] .flavor-blob { background-color: var(--grapefruit-accent); }
-.flavor-section[data-flavor="cucumber"]   .flavor-blob { background-color: var(--cucumber-accent); }
+.flavor-section[data-flavor="classic"] .flavor-blob {
+  background-color: var(--classic-accent);
+}
+
+.flavor-section[data-flavor="ginger"] .flavor-blob {
+  background-color: var(--ginger-accent);
+}
+
+.flavor-section[data-flavor="berry"] .flavor-blob {
+  background-color: var(--berry-accent);
+}
+
+.flavor-section[data-flavor="orange"] .flavor-blob {
+  background-color: var(--orange-accent);
+}
+
+.flavor-section[data-flavor="grapefruit"] .flavor-blob {
+  background-color: var(--grapefruit-accent);
+}
+
+.flavor-section[data-flavor="cucumber"] .flavor-blob {
+  background-color: var(--cucumber-accent);
+}
 
 /* === Final Section === */
 .final-section {
@@ -664,7 +736,7 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
   transition: all 0.4s ease;
   cursor: pointer;
 }
@@ -815,7 +887,8 @@ body {
     display: none;
   }
 
-  .organic-blob, .flavor-blob {
+  .organic-blob,
+  .flavor-blob {
     transform: scale(0.5);
   }
 
