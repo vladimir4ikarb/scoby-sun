@@ -730,14 +730,14 @@ body {
   transform: translateY(-50%);
 }
 
-/* FINAL: no bottle, word at very bottom */
+/* FINAL: no bottle, word at very bottom — clearly visible below all content */
 .accent-word--final {
   font-size: clamp(4rem, 8vw, 7rem);
-  opacity: 0.1;
+  opacity: 0.18;
   left: 0;
   width: 100%;
   text-align: center;
-  bottom: 8%;
+  bottom: 6%;
   top: auto;
   transform: none;
 }
@@ -867,11 +867,12 @@ body {
     width: 100%;
     text-align: center;
     font-size: clamp(3.5rem, 15vw, 6rem);
-    opacity: 0.18;
+    opacity: 0.2;
     filter: none;
-    top: 70%;
-    transform: translateY(-50%);
-    bottom: auto;
+    /* Below the bottles, not hidden behind them */
+    bottom: 4%;
+    top: auto;
+    transform: none;
     color: var(--coral-pink);
   }
 
@@ -880,7 +881,7 @@ body {
     width: 100%;
     text-align: center;
     font-size: clamp(2.5rem, 11vw, 4.5rem);
-    opacity: 0.1;
+    opacity: 0.18;
     filter: none;
     bottom: 6%;
     top: auto;
