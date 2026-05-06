@@ -254,6 +254,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 10;
 }
 
 .hero-bottle {
@@ -381,6 +382,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  z-index: 10;  /* above accent-word (z-index:2) */
 }
 
 .bottle-container img {
@@ -672,58 +674,60 @@ body {
   transform: scale(1.6);
 }
 
-/* === Decorative Exmouth Accent Words === */
+/* === Decorative Exmouth Accent Words ===
+   Behind bottles, centered, huge, blurred
+   z-index BELOW bottles (bottles are z-index:10+)
+========================================== */
 .accent-word {
   font-family: 'Exmouth', cursive;
-  font-size: clamp(3.5rem, 8vw, 7rem);
   position: absolute;
-  z-index: 3;
+  z-index: 2;         /* BELOW bottles */
   pointer-events: none;
-  opacity: 0.2;
-  color: currentColor;
+  user-select: none;
   white-space: nowrap;
   line-height: 1;
-  bottom: 8%;
-  right: 5%;
-  max-width: 45%;
-  overflow: hidden;
-  user-select: none;
+  color: currentColor;
+  /* Default: centered on section, vertically in the bottle zone (top 50%) */
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Large enough to span around a single bottle */
+  font-size: clamp(8rem, 22vw, 20rem);
+  opacity: 0.18;
+  filter: blur(3px);
 }
 
-/* Hero: position differently — top-right */
+/* Hero: 'alive' spans ALL 6 bottles — needs to be much wider */
 .hero-section .accent-word {
-  top: 18%;
-  right: 4%;
-  bottom: auto;
-  font-size: clamp(4rem, 9vw, 8rem);
-  opacity: 0.3;
+  font-size: clamp(10rem, 32vw, 30rem);
+  opacity: 0.22;
+  filter: blur(4px);
   color: var(--coral-pink);
-  max-width: 40%;
+  /* Centered on the right half (bottle column) */
+  top: 50%;
+  left: 75%;  /* center of the right column in a 2-col grid */
+  transform: translate(-50%, -50%);
 }
 
-/* Final: bottom right to avoid overlapping logo */
+/* Final section word */
 .accent-word--final {
-  bottom: 6%;
-  right: 4%;
-  top: auto;
-  left: auto;
-  transform: none;
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  opacity: 0.2;
-  max-width: 45%;
-}
-
-/* Alternating positions for visual variety */
-.flavor-section:nth-child(odd) .accent-word {
-  bottom: 10%;
-  right: 4%;
-  left: auto;
-}
-
-.flavor-section:nth-child(even) .accent-word {
-  bottom: 10%;
-  left: 4%;
+  font-size: clamp(8rem, 22vw, 20rem);
+  opacity: 0.12;
+  filter: blur(3px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: auto;
   right: auto;
+}
+
+/* Flavor sections — same center logic, no alternating needed */
+.flavor-section .accent-word {
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  right: auto;
+  bottom: auto;
 }
 
 /* === Responsive === */
@@ -827,28 +831,29 @@ body {
     background-size: 300px;
   }
 
-  /* On mobile — ALL accent words positioned from LEFT so text starts visible */
+  /* Mobile accent words: centered, smaller, still behind bottles */
   .accent-word,
-  .flavor-section:nth-child(odd) .accent-word,
-  .flavor-section:nth-child(even) .accent-word,
+  .flavor-section .accent-word,
   .accent-word--final {
-    font-size: clamp(2.2rem, 9vw, 3.5rem);
-    opacity: 0.18;
-    max-width: none;
-    overflow: visible;
-    bottom: 8%;
-    left: 5%;
+    font-size: clamp(5rem, 28vw, 12rem);
+    opacity: 0.16;
+    filter: blur(2px);
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
     right: auto;
+    bottom: auto;
   }
 
   .hero-section .accent-word {
-    top: auto;
-    bottom: 14%;
-    left: 5%;
+    font-size: clamp(6rem, 34vw, 14rem);
+    opacity: 0.2;
+    filter: blur(3px);
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     right: auto;
-    transform: none;
-    font-size: clamp(2.4rem, 10vw, 3.8rem);
-    opacity: 0.22;
+    bottom: auto;
   }
 
   .logo-watermark {
