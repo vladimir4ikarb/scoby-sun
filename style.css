@@ -687,7 +687,7 @@ body {
   user-select: none;
   white-space: nowrap;
   line-height: 1;
-  opacity: 0.17;
+  opacity: 0.27;
   color: currentColor;
   /* Full width + center-align: no left-bias clipping */
   left: 0;
@@ -695,7 +695,7 @@ body {
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
-  font-size: clamp(5rem, 9vw, 8.5rem);
+  font-size: clamp(5rem, 13vw, 8.5rem);
 }
 
 /* HERO: bottles on right — word centered on right half */
