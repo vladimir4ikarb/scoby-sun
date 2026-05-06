@@ -674,60 +674,92 @@ body {
   transform: scale(1.6);
 }
 
-/* === Decorative Exmouth Accent Words ===
-   Behind bottles, centered, huge, blurred
-   z-index BELOW bottles (bottles are z-index:10+)
-========================================== */
+/* ================================================
+   Decorative Exmouth Accent Words
+   - z-index: 2  (BELOW bottles which are z-index:10)
+   - No blur, just low opacity
+   - Positioned behind the BOTTLE COLUMN of each section
+   Grid is 1fr 1fr. Right column center = left:75%. Left column center = left:25%.
+================================================ */
 .accent-word {
   font-family: 'Exmouth', cursive;
   position: absolute;
-  z-index: 2;         /* BELOW bottles */
+  z-index: 2;
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
   line-height: 1;
+  opacity: 0.17;
   color: currentColor;
-  /* Default: centered on section, vertically in the bottle zone (top 50%) */
-  top: 28%;
-  left: 50%;
-  transform: translateX(-50%);
-  /* Large enough to span around a single bottle */
-  font-size: clamp(8rem, 22vw, 20rem);
-  opacity: 0.18;
-  filter: blur(3px);
+  /* No blur — just low opacity */
 }
 
-/* Hero: 'alive' spans ALL 6 bottles — needs to be much wider */
+/* HERO: bottles are in the RIGHT column. center = 75% */
 .hero-section .accent-word {
-  font-size: clamp(10rem, 32vw, 30rem);
+  font-size: clamp(5rem, 16vw, 15rem);
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
   opacity: 0.22;
-  filter: blur(4px);
   color: var(--coral-pink);
-  /* Centered on the right half (bottle column) */
+}
+
+/* CLASSIC: bottle is RIGHT column. center = 75% */
+.flavor-section[data-flavor="classic"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
   top: 50%;
-  left: 75%;  /* center of the right column in a 2-col grid */
+  left: 75%;
   transform: translate(-50%, -50%);
 }
 
-/* Final section word */
+/* GINGER: bottle is LEFT column. center = 25% */
+.flavor-section[data-flavor="ginger"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+/* BERRY: bottle is RIGHT column. center = 75% */
+.flavor-section[data-flavor="berry"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+/* ORANGE: bottle is LEFT column. center = 25% */
+.flavor-section[data-flavor="orange"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+/* GRAPEFRUIT: bottle is RIGHT column. center = 75% */
+.flavor-section[data-flavor="grapefruit"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+/* CUCUMBER: bottle is LEFT column. center = 25% */
+.flavor-section[data-flavor="cucumber"] .accent-word {
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+/* FINAL: no bottle, word at very bottom so it doesn't overlap headline */
 .accent-word--final {
-  font-size: clamp(8rem, 22vw, 20rem);
-  opacity: 0.12;
-  filter: blur(3px);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  bottom: auto;
-  right: auto;
-}
-
-/* Flavor sections — same center logic, no alternating needed */
-.flavor-section .accent-word {
-  top: 28%;
+  font-size: clamp(4rem, 10vw, 9rem);
+  opacity: 0.1;
+  bottom: 8%;
+  top: auto;
   left: 50%;
   transform: translateX(-50%);
-  right: auto;
-  bottom: auto;
 }
 
 /* === Responsive === */
@@ -831,29 +863,48 @@ body {
     background-size: 300px;
   }
 
-  /* Mobile accent words: centered, smaller, still behind bottles */
+  /* Mobile: flavor sections have bottle at TOP, text below.
+     Position word in the bottle zone (top ~25% of section). */
   .accent-word,
-  .flavor-section .accent-word,
-  .accent-word--final {
-    font-size: clamp(5rem, 28vw, 12rem);
-    opacity: 0.16;
-    filter: blur(2px);
-    top: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
-    bottom: auto;
-  }
-
-  .hero-section .accent-word {
-    font-size: clamp(6rem, 34vw, 14rem);
-    opacity: 0.2;
-    filter: blur(3px);
-    top: 42%;
+  .flavor-section[data-flavor="classic"] .accent-word,
+  .flavor-section[data-flavor="ginger"] .accent-word,
+  .flavor-section[data-flavor="berry"] .accent-word,
+  .flavor-section[data-flavor="orange"] .accent-word,
+  .flavor-section[data-flavor="grapefruit"] .accent-word,
+  .flavor-section[data-flavor="cucumber"] .accent-word {
+    font-size: clamp(3.5rem, 18vw, 7rem);
+    opacity: 0.15;
+    filter: none;
+    top: 22%;
     left: 50%;
     transform: translate(-50%, -50%);
     right: auto;
     bottom: auto;
+  }
+
+  /* Hero mobile: bottles are at BOTTOM of the hero (order:4 in flex).
+     On mobile hero is a flex column: logo → h1 → subtitle → bottles
+     Bottles appear roughly in the bottom 40% of screen */
+  .hero-section .accent-word {
+    font-size: clamp(4rem, 22vw, 8rem);
+    opacity: 0.18;
+    filter: none;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: auto;
+    bottom: auto;
+  }
+
+  /* Final section: word at very bottom, not over headline */
+  .accent-word--final {
+    font-size: clamp(3rem, 15vw, 6rem);
+    opacity: 0.1;
+    filter: none;
+    bottom: 6%;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .logo-watermark {
